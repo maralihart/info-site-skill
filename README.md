@@ -9,10 +9,13 @@ The **Learn Any Topic** demo is complete enough to preview and contains no visib
 1. Copy and rename this folder so the untouched starter remains available.
 2. Open the files in any plain-text editor (Visual Studio Code, Notepad, or similar).
 3. Complete `research-notes-template.md`, then `content-plan.md`.
-4. In each HTML file, use Find (`Ctrl+F` or `Command+F`) for `CUSTOMIZE:` and `[[`. The tokens are inside comments and tell you what nearby demo content to replace.
-5. Change the documented variables at the top of both CSS files for colors and fonts.
-6. Double-click `index.html`; it works from `file://` and offline.
-7. Use a **Print guide** link on the website. On `print-guide.html`, choose **Print / save PDF** and inspect every page.
+4. To have Copilot do the work, open `index.html`, select **Create with Copilot**,
+   replace `[YOUR TOPIC]`, and paste the prompt that was copied to your
+   clipboard. `SKILL.md` contains the full reusable execution contract.
+5. In each HTML file, use Find (`Ctrl+F` or `Command+F`) for `CUSTOMIZE:` and `[[`. The tokens are inside comments and tell you what nearby demo content to replace.
+6. Change the documented variables at the top of both CSS files for colors and fonts.
+7. Double-click `index.html`; it works from `file://` and offline.
+8. Use a **Print guide** link on the website. On `print-guide.html`, choose **Print / save PDF** and inspect every page.
 
 No-build is deliberate: direct editing stays portable and avoids local-file `fetch()` restrictions.
 
@@ -27,6 +30,35 @@ No-build is deliberate: direct editing stays portable and avoids local-file `fet
 | `print-guide.css` | Conservative Letter/A4 print and screen preview |
 | `research-notes-template.md` | Claim ledger, sources, uncertainty, fact-checking |
 | `content-plan.md` | Audience, model, progression, and section planner |
+| `SKILL.md` | Reusable Copilot instructions for researching, building, and validating a topic site |
+
+## Use it as a Copilot skill
+
+`SKILL.md` defines when to use the framework, required inputs, the research and
+implementation workflow, deliverables, guardrails, and completion checks. Keep
+it in the project root so Copilot can read it with the rest of the starter.
+
+The **Create with Copilot** button on `index.html` opens the full starter prompt
+and immediately attempts to copy it. Clipboard access normally works on a
+secure hosted site; when the starter is opened directly from `file://`, the
+included fallback selects and copies through the browser's legacy copy command.
+If a browser blocks both methods, the dialog leaves the prompt selected for
+manual copying. The dialog is touch-friendly, scrollable, and sized for narrow
+mobile screens; the copy action and status remain full-width at 320px.
+
+Suggested usage:
+
+1. Copy this starter folder and rename it for the topic.
+2. Keep `SKILL.md` in the copied project.
+3. Open the starter website and choose **Create with Copilot**.
+4. Replace `[YOUR TOPIC]` in the copied prompt and send it to Copilot while the
+   copied project is open.
+5. Review the cited research and final print preview before publishing.
+
+To adapt the skill itself, edit its **Required input**, **Workflow**,
+**Guardrails**, or **Required deliverables** sections. Keep the completion
+standard measurable so Copilot verifies the result instead of stopping after
+writing files.
 
 ## Edit in this order
 

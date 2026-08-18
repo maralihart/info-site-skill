@@ -27,7 +27,7 @@
         <!-- CUSTOMIZE: Promise — lead with the outcome. Tokens: [[TOPIC_NAME]], [[ONE_SENTENCE_PROMISE]]. -->
         <h1 id="overview-heading">Turn a broad subject into a clear learning path</h1>
         <p class="deck">Use one mental model, a verified sequence, and observable checks to move from “where do I start?” to confident next steps.</p>
-        <div class="button-row"><a class="button" href="#steps">Build your learning plan</a><a class="text-link" href="print-guide.html">Open printable guide</a></div>
+        <div class="button-row"><a class="button" href="#steps">Build your learning plan</a><button class="button button-secondary" type="button" data-copilot-trigger hidden>Create with Copilot</button><a class="text-link" href="print-guide.html">Open printable guide</a></div>
         <ul class="quick-facts" aria-label="Guide qualities"><li><strong>Works offline</strong><span>No external assets</span></li><li><strong>Scope first</strong><span>Name version or region</span></li><li><strong>Evidence aware</strong><span>Verify before publishing</span></li></ul>
       </div>
       <!-- CUSTOMIZE: Diagram — update title, description, labels, geometry, caption. Tokens: [[INPUT]], [[ACTION]], [[RESULT]]. -->
@@ -66,5 +66,30 @@
   </main>
 
   <footer id="sources" class="site-footer" aria-labelledby="sources-heading"><div class="wrap footer-grid"><div><p class="eyebrow">Evidence and scope</p><h2 id="sources-heading">Sources and methodology</h2><p>Demo reviewed 2026-08-18. This topic-neutral page demonstrates an editorial pattern rather than specialized advice. Diagrams are original abstractions, and the question → practice → check loop is a starter convention rather than a universal learning rule.</p></div><div><h3>Demo references</h3><!-- CUSTOMIZE: Replace these with sources that directly support the topic's claims. Include organization/author, title, date, URL, accessed date, and exact scope. Tokens: [[SOURCE_1]], [[SOURCE_1_URL]]. --><ol class="source-list"><li><strong>Institute of Education Sciences.</strong> <a href="https://ies.ed.gov/ncee/wwc/PracticeGuide/1">Organizing Instruction and Study to Improve Student Learning</a>, 2007; accessed 2026-08-18. General instructional practice guide, not topic-specific evidence.</li><li><strong>W3C Web Accessibility Initiative.</strong> <a href="https://www.w3.org/WAI/WCAG22/Understanding/">Understanding WCAG 2.2</a>, updated resource; accessed 2026-08-18. Used for accessibility review, not educational-content claims.</li></ol><p class="method-note"><strong>Method note:</strong> label content as authoritative, general guidance, selected preference, inference, anecdote, or locally/version-variable. Put high-impact caveats beside the relevant step, and remove a claim when no source directly supports it.</p></div></div></footer>
+
+  <dialog class="copilot-dialog" data-copilot-dialog aria-labelledby="copilot-dialog-title">
+    <div class="dialog-heading">
+      <div><p class="eyebrow">Copied for you</p><h2 id="copilot-dialog-title">Create a topic guide with Copilot</h2></div>
+      <form method="dialog"><button class="dialog-close" type="submit" aria-label="Close prompt">×</button></form>
+    </div>
+    <p>Replace <strong>[YOUR TOPIC]</strong>, then paste this prompt into GitHub Copilot. The prompt is copied automatically when this window opens.</p>
+    <textarea class="copilot-prompt" data-copilot-prompt readonly rows="15">Create a new educational website about [YOUR TOPIC] using the topic-site-starter project as the framework. Read and follow SKILL.md as the execution contract.
+
+First, research the topic using reputable, current, specialized sources. Clearly distinguish authoritative guidance, general advice, version- or region-specific behavior, inference, and anecdote. Save concise cited notes in research-notes.md.
+
+Then build a polished, beginner-friendly static website that opens directly from index.html with no build tools. Include:
+- a clear scope and audience;
+- one useful mental model with original HTML/CSS/SVG visuals;
+- essentials, a step-by-step learning path, practical examples, alternatives, troubleshooting, and next steps;
+- accessible semantic HTML, keyboard support, responsive layouts, and offline-friendly assets;
+- source attribution and visible caveats beside affected guidance;
+- a separate print-guide.html and print-guide.css that produce a simplified 1-3 page Letter/A4 guide with no clipped cards, split diagrams, blank overflow pages, or unnecessary decoration.
+
+Reuse the starter's file structure and visual conventions, but replace all demonstration content with accurate topic-specific material. Update README.md with the finished project's purpose and usage. Validate JavaScript, local links, anchors, IDs, accessibility basics, responsive behavior, and print CSS before finishing.</textarea>
+    <div class="dialog-actions">
+      <button class="button" type="button" data-copy-prompt>Copy prompt again</button>
+      <span class="copy-status" data-copy-status role="status" aria-live="polite"></span>
+    </div>
+  </dialog>
 </body>
 </html>
