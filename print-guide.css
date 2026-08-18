@@ -1,0 +1,74 @@
+:root {
+  /* CUSTOMIZE: Print palette; borders must survive grayscale/backgrounds-off output. */
+  --paper: #fff; --ink: #151b18; --muted: #4d5651; --primary: #234f3e;
+  --accent: #8a351f; --line: #77807b; --wash: #eef1ed; --focus: #6541a5;
+  --font-display: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: Arial, system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { max-width: 8.5in; margin: 1.5rem auto; padding: .45in; color: var(--ink); background: var(--paper); box-shadow: 0 1rem 3rem rgb(0 0 0 / .16); font-family: var(--font-body); font-size: 10.5pt; line-height: 1.38; }
+h1, h2, h3 { margin: 0 0 .35em; font-family: var(--font-display); line-height: 1.08; }
+h1 { color: var(--primary); font-size: 28pt; }
+h2 { padding-bottom: .12rem; border-bottom: 1.5pt solid var(--primary); font-size: 15pt; }
+h3 { font-size: 10.5pt; }
+p, ul, ol, figure { margin-top: 0; }
+a { color: var(--primary); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip-link { position: fixed; top: .4rem; left: .4rem; transform: translateY(-180%); padding: .5rem; color: #fff; background: var(--ink); }
+.skip-link:focus { transform: none; }
+.page-header { display: flex; justify-content: space-between; gap: .3in; padding-bottom: .16in; border-bottom: 3pt solid var(--primary); }
+.kicker { margin-bottom: .05in; color: var(--accent); font-size: 8pt; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.subtitle { margin-bottom: 0; color: var(--muted); font-size: 12pt; }
+.actions { min-width: 1.55in; display: flex; flex-direction: column; gap: .12in; }
+.actions a, .actions button { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: .08in .12in; border: 1px solid var(--primary); border-radius: .1in; color: var(--primary); background: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+main { display: grid; gap: .16in; padding-top: .16in; }
+.print-overview { display: grid; grid-template-columns: 1.25fr .85fr; gap: .2in; align-items: center; }
+.principle { margin-bottom: .07in; color: var(--primary); font-family: var(--font-display); font-size: 14pt; font-weight: 800; }
+.facts, .check-list { padding-left: .18in; margin-bottom: 0; }
+.facts li, .check-list li { margin-bottom: .035in; }
+.mini-diagram { margin: 0; padding: .1in; border: 1pt solid var(--line); border-radius: .08in; }
+.mini-diagram svg { width: 100%; height: auto; display: block; }
+.mini-diagram rect { fill: #fff; stroke: var(--primary); stroke-width: 2.5; }
+.mini-diagram path { fill: none; stroke: var(--primary); stroke-width: 2.5; }
+.mini-diagram defs path { fill: var(--primary); stroke: none; }
+.mini-diagram .return { stroke-dasharray: 6 5; }
+.mini-diagram text { fill: var(--ink); font-family: var(--font-body); font-size: 16px; font-weight: 700; text-anchor: middle; }
+.mini-diagram .small { fill: var(--muted); font-size: 12px; }
+figcaption { margin-top: .04in; color: var(--muted); font-size: 8pt; text-align: center; }
+.step-list { display: grid; grid-template-columns: 1fr 1fr; gap: .08in .18in; padding-left: .22in; margin-bottom: 0; }
+.two-column, .fix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .18in; }
+.two-column > div { padding: .1in .12in; border: 1pt solid var(--line); }
+.fix-grid { gap: .08in; }
+.fix-grid > div { padding: .08in .1in; border-left: 4pt double var(--primary); background: var(--wash); }
+.fix-grid p, .print-warning p, footer p { margin-bottom: 0; }
+.print-warning { padding: .1in .12in; border: 2pt solid var(--accent); }
+.print-warning h2 { color: var(--accent); border-color: var(--accent); }
+footer { margin-top: .16in; padding-top: .1in; border-top: 1pt solid var(--line); color: var(--muted); font-size: 8pt; }
+.path { font-family: ui-monospace, Consolas, monospace; }
+.keep-together, figure, .step-list li, .fix-grid > div, .two-column > div, footer {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+@media (max-width: 42rem) {
+  body { margin: 0; padding: 1rem; box-shadow: none; }
+  .page-header, .print-overview, .step-list, .two-column, .fix-grid { grid-template-columns: 1fr; display: grid; }
+  .actions { min-width: 0; }
+}
+/* Uses the Letter or A4 paper selected in the print dialog. Preview both. */
+@page { size: auto; margin: .45in; }
+@media print {
+  html, body { background: #fff; }
+  body { max-width: none; margin: 0; padding: 0; box-shadow: none; font-size: 9.5pt; line-height: 1.3; }
+  .screen-only, .skip-link { display: none !important; }
+  a { color: inherit; text-decoration: none; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: .85em; overflow-wrap: anywhere; }
+  h1, h2, h3, figure, .keep-together {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h2, h3 { break-after: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  .fix-grid > div { background: #fff; border: 1pt solid var(--line); border-left: 4pt double var(--ink); }
+  .two-column > div, .mini-diagram, .print-warning { border-color: var(--ink); }
+  .print-warning h2 { color: var(--ink); border-color: var(--ink); }
+}
